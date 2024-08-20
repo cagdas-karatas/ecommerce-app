@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: aliceblue;
+    background-color: #f0f2f5;
 }
 
 .home-page-wrapper .app-bar {
@@ -13,7 +13,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    height: 11vh;
+    height: 8vh;
     background-color: burlywood;
     width: 100%;
     color: white;
@@ -25,6 +25,7 @@
     cursor: pointer;
     font-size: 25px;
     margin-left: 20px;
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
 }
 
 .home-page-wrapper .app-bar .search-box{
@@ -37,6 +38,7 @@
     border: 2px solid white;
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.1);
 }
 
 .home-page-wrapper .app-bar .search-box input{
@@ -56,7 +58,7 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
-.home-page-wrapper .app-bar .buttons {
+.home-page-wrapper .app-bar .before-login-buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -65,7 +67,44 @@
     margin-right: 20px;
 }
 
-.home-page-wrapper .app-bar .circle-button{
+.home-page-wrapper .app-bar .before-login-buttons .before-login-button {
+    cursor: pointer;
+    width: 80px;
+    height: 35px;
+    border:none;
+    color: white;
+    border-radius: 6px;
+    transition-duration: 0.2s;
+}
+
+.home-page-wrapper .app-bar .before-login-buttons #login-button {
+    background-color: #964141;
+}
+
+.home-page-wrapper .app-bar .before-login-buttons #login-button:hover {
+    background-color: #b95050;
+    transform: scale(1.1);
+}
+
+.home-page-wrapper .app-bar .before-login-buttons #sign-up-button {
+    background-color: #d14545;
+}
+
+.home-page-wrapper .app-bar .before-login-buttons #sign-up-button:hover {
+    background-color: #f6141496;
+    transform: scale(1.1);
+}
+
+.home-page-wrapper .app-bar .after-login-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.home-page-wrapper .app-bar .after-login-buttons .circle-button{
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -74,6 +113,9 @@
     height: 40px;
     border-radius: 50%;
     border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
 }
 
 .home-page-wrapper .content{

@@ -10,13 +10,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
         <div className="product-card">
             <div className="image">
-                <img src={product.image} alt={product.title} />
+                <img src={product.imageUrl} alt={product.productName} />
             </div>
             <div className="product-page-content">
-                <h3>{product.title}</h3>
-                <p className='description'>{product.description}</p>
-                <p className='price'>Price: ${product.price}</p>
-                <p className='rating'>Rating: {product.rating.rate} ({product.rating.count} reviews)</p>
+                <h3>{product.productName}</h3>
+                <p className='description'>{product.productDescription}</p>
+                <p className='price'>Price: ₺{product.price}</p>
+                {product.rate ?
+                <p className='rating'>Rating: {product.rate} ({product.countOfReviews} reviews)</p> : 
+                <p className='rating'>Henüz yorum yapılmadı</p>}
+                
             </div>
         </div>
     );

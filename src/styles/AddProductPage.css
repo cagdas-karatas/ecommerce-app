@@ -3,12 +3,15 @@
 }
 
 .add-product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
+    width: 500px;
 }
 
 .add-product-container h2 {
@@ -20,12 +23,18 @@
 
 .add-product-container .form-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     margin-bottom: 15px;
 }
 
 .add-product-container .form-group {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
     margin-right: 10px;
 }
 
@@ -50,8 +59,27 @@ textarea {
     border-radius: 4px;
 }
 
-.add-product-container textarea {
-    resize: none;
+.add-product-container #uploader {
+    display: none;
+}
+
+
+.add-product-container #uploadButton {
+    cursor: pointer;
+    background-color: indianred;
+    width: 90px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    margin: 20px;
+}
+
+.add-product-container #uploadButton:hover {
+    background-color: rgb(163, 73, 73);
 }
 
 .add-product-container button.submit-btn {
@@ -63,7 +91,6 @@ textarea {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
 .add-product-container button.submit-btn:hover {

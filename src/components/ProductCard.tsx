@@ -10,7 +10,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
         <div className="product-card">
             <div className="image">
-                <img src={product.imageUrl} alt={product.productName} />
+                <img src={"http://localhost:5212/Images/" + product.imageUrl} alt={product.productName} />
             </div>
             <div className="product-page-content">
                 <h3>{product.productName}</h3>

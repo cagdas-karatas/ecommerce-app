@@ -8,35 +8,60 @@ const AddProductPage: React.FC = () => {
   const { user } = useUser();
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState(0.00);
+  const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [imageSrc, setImageSrc] = useState<string | ArrayBuffer | null | undefined>();
+  const [file, setFile] = useState<File>();
 
   const handleSave = () => {
-    const productData = {
-      productName: productName,
-      sellerName: user.userName,
-      productDescription: description,
-      productCategory: category,
-      price: price,
-      imageUrl: imageUrl,
+    if(imageUrl == ""){
+      alert("Ürün görseli seçiniz");
+    } else {
+      const productData = new FormData();
+    productData.append('productName', productName);
+    productData.append('sellerName', user.userName);
+    productData.append('productDescription', description);
+    productData.append('productCategory', category);
+    productData.append('price', price.toString());
+    productData.append('imageUrl', imageUrl);
+    if (file) {
+      productData.append('imageFile', file);
     }
 
-    axios.post("http://localhost:5212/api/Product", productData).then(
+    axios.post("http://localhost:5212/api/Product", productData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      }
+    }).then(
       response => {
         alert("ürün başarıyla eklendi");
       }
     ).catch(
       err => {
         if (err.response?.data?.errors) {
-          const errorMessages = Object.values(err.response.data.errors).flat();
+          const errorMessages = Object.values(err.response.data.errors);
           const combinedErrors = errorMessages.join('\n');
           alert(combinedErrors);
         } else {
-          alert(err.response?.data || 'An error occurred');
+          console.log(err);
         }
       }
     );
+    }
+  }
+
+  const showPreview = (file: File | undefined) => {
+    if(file)
+    {
+      const reader = new FileReader();
+      reader.onload = x => {
+        setFile(file);
+        setImageUrl(file.name);
+        setImageSrc(x.target?.result);
+      }
+      reader.readAsDataURL(file);
+    }
   }
 
   return (
@@ -64,11 +89,15 @@ const AddProductPage: React.FC = () => {
       </div>
       <div className="form-row">
         <div className="form-group">
-          <label>Image URL</label>
-          <input type="text" onChange={(e) => { setImageUrl(e.target.value) }} />
+          <input type="file" id="uploader" accept="image/*" onChange={(e) => showPreview(e.target.files?.[0])} />
+          <label htmlFor='uploader' id='uploadButton'>Upload Image</label>
+        </div>
+        <div className="form-group">
+          <a>{imageUrl == "" ? "Dosya seçilmedi" : imageUrl}</a>
         </div>
       </div>
       <button className="submit-btn" onClick={() => handleSave()}>Add Product</button>
+      <img src={imageSrc as (string | undefined)} alt="selected" />
     </div>
   );
 };

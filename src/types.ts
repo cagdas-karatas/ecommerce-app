@@ -9,3 +9,12 @@ export type Product = {
     rate: number;
     countOfReviews: number;
 };
+
+export type ShopRequest = {
+    shopName: string,
+    taxNumber: string,
+    companyPhoneNumber: string,
+    shopAddress: string,
+    approveStatus: string,
+    userId: number
+}

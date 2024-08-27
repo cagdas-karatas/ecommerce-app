@@ -5,13 +5,17 @@ import HomePage from './pages/HomePage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import { UserProvider } from './contexts/UserContext';
+import AdminPanel from './pages/AdminPanel';
+import StorePage from './pages/StorePage';
 
 function App() {
   return (
     <Routes>
-      <Route path='/*' element={<HomePage />} />
+      <Route path='/' element={<HomePage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/sign-up' element={<SignUpPage />} />
+      <Route path='/admin' element={<AdminPanel />} />
+      <Route path='/store' element={<StorePage />} />
     </Routes>
   );
 }

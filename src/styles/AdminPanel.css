@@ -1,0 +1,10 @@
+.admin-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-page-wrapper .content {
+    margin-top: 100px;
+}

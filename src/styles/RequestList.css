@@ -1,6 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
 .request-list-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.request-list-wrapper .request-list {
+    border-collapse: collapse;
+}
+
+.request-list-wrapper .request-list td, th {
+    border: 2px solid #ccc;
+    background-color: bisque;
+    padding: 20px;
+}
+
+.request-list-wrapper .request-list .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.request-list-wrapper .request-list .actions button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.request-list-wrapper .request-list .actions #accept-button {
+    background-color: lawngreen;
+}
+
+.request-list-wrapper .request-list .actions #reject-button {
+    background-color: crimson;
 }

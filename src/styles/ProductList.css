@@ -1,5 +1,7 @@
 .product-list {
     display: grid;
+    margin-top: 30px;
+    align-self: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 50px;
     justify-items: center;

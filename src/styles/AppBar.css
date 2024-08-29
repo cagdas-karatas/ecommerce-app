@@ -24,6 +24,25 @@
     padding-left: 20px;
 }
 
+.app-bar .home-and-menu .side-menu-button{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.app-bar .home-and-menu .side-menu-icon{
+    font-size: 35px;
+}
+
+.app-bar .home-and-menu #side-menu-icon-shadow {
+    position: absolute;
+    top: 20px;
+    left: 23px;
+    color: rgba(0, 0, 0, 0.2);
+}
+
 .app-bar .home-link{
     cursor: pointer;
     font-size: 25px;
@@ -130,7 +149,7 @@
     display: flex;
 }
 
-.app-bar .user-buttons .menu-button .dropdown-wrapper .account-dropdown-menu {
+.app-bar .user-buttons .menu-button .dropdown-wrapper .dropdown-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,7 +160,7 @@
     box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
-.app-bar .user-buttons .menu-button .account-dropdown-menu a{
+.app-bar .user-buttons .menu-button .dropdown-menu a{
     cursor: pointer;
     border: none;
     background-color: wheat;
@@ -154,6 +173,6 @@
     text-decoration: none;
 }
 
-.app-bar .user-buttons .menu-button .account-dropdown-menu a:hover{
+.app-bar .user-buttons .menu-button .dropdown-menu a:hover{
     background-color: darksalmon;
 }

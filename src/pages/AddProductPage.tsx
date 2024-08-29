@@ -10,54 +10,62 @@ const AddProductPage: React.FC = () => {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageName, setImageName] = useState("");
   const [imageSrc, setImageSrc] = useState<string | ArrayBuffer | null | undefined>();
   const [file, setFile] = useState<File>();
 
+  if(!(user && user.user && user.token))
+  {
+    return <div>Loading...</div>;
+  }
+
+  const authAxios = axios.create({
+    baseURL: "http://localhost:5212/api/Product/",
+    headers: {
+      Authorization: `Bearer ${user.token.accesToken}`,
+      "Content-Type": 'multipart/form-data'
+    }
+  });
+
   const handleSave = () => {
-    if(imageUrl == ""){
+    if (imageName == "") {
       alert("Ürün görseli seçiniz");
     } else {
       const productData = new FormData();
-    productData.append('productName', productName);
-    productData.append('sellerName', user.userName);
-    productData.append('productDescription', description);
-    productData.append('productCategory', category);
-    productData.append('price', price.toString());
-    productData.append('imageUrl', imageUrl);
-    if (file) {
-      productData.append('imageFile', file);
-    }
+      productData.append('shopId', user.user.shopId);
+      productData.append('productName', productName);
+      productData.append('productDescription', description);
+      productData.append('categoryId', category);
+      productData.append('price', price.toString());
+      productData.append('imageName', imageName);
+      if (file) {
+        productData.append('imageFile', file);
+      }
 
-    axios.post("http://localhost:5212/api/Product", productData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      }
-    }).then(
-      response => {
-        alert("ürün başarıyla eklendi");
-      }
-    ).catch(
-      err => {
-        if (err.response?.data?.errors) {
-          const errorMessages = Object.values(err.response.data.errors);
-          const combinedErrors = errorMessages.join('\n');
-          alert(combinedErrors);
-        } else {
-          console.log(err);
+      authAxios.post("http://localhost:5212/api/Product", productData).then(
+        response => {
+          alert("ürün başarıyla eklendi");
         }
-      }
-    );
+      ).catch(
+        err => {
+          if (err.response?.data?.errors) {
+            const errorMessages = Object.values(err.response.data.errors);
+            const combinedErrors = errorMessages.join('\n');
+            alert(combinedErrors);
+          } else {
+            console.log(err);
+          }
+        }
+      );
     }
   }
 
   const showPreview = (file: File | undefined) => {
-    if(file)
-    {
+    if (file) {
       const reader = new FileReader();
       reader.onload = x => {
         setFile(file);
-        setImageUrl(file.name);
+        setImageName(file.name);
         setImageSrc(x.target?.result);
       }
       reader.readAsDataURL(file);
@@ -93,11 +101,10 @@ const AddProductPage: React.FC = () => {
           <label htmlFor='uploader' id='uploadButton'>Upload Image</label>
         </div>
         <div className="form-group">
-          <a>{imageUrl == "" ? "Dosya seçilmedi" : imageUrl}</a>
+          <a>{imageName == "" ? "Dosya seçilmedi" : imageName}</a>
         </div>
       </div>
       <button className="submit-btn" onClick={() => handleSave()}>Add Product</button>
-      <img src={imageSrc as (string | undefined)} alt="selected" />
     </div>
   );
 };

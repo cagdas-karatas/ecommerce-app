@@ -1,16 +1,15 @@
 export type Product = {
-    id: number;
+    productId: number;
+    shopId: number;
     productName: string;
-    sellerName: string;
     productDescription: string;
+    categoryId: string;
     price: number;
-    productCategory: string;
-    imageUrl: string;
-    rate: number;
-    countOfReviews: number;
+    imageName: string;
 };
 
 export type ShopRequest = {
+    shopRequestId: number,
     shopName: string,
     taxNumber: string,
     companyPhoneNumber: string,

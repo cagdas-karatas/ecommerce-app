@@ -11,11 +11,10 @@ import StorePage from './pages/StorePage';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<HomePage />} />
+      <Route path='/*' element={<HomePage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/sign-up' element={<SignUpPage />} />
-      <Route path='/admin' element={<AdminPanel />} />
-      <Route path='/store' element={<StorePage />} />
+      <Route path='/admin/*' element={<AdminPanel />} />
     </Routes>
   );
 }

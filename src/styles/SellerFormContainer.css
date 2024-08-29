@@ -1,0 +1,79 @@
+.seller-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.seller-form-container .form-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.seller-form-container .form-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.seller-form-container .form-box .text-field {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.seller-form-container .form-box label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.seller-form-container .form-box input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.seller-form-container .form-box button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition-duration: 200ms;
+}
+
+.seller-form-container .form-box button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.seller-form-container .form-box p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.seller-form-container .form-box a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.seller-form-container .form-box a:hover {
+    text-decoration: underline;
+}

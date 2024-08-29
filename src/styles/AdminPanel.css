@@ -1,10 +1,12 @@
 .admin-page-wrapper {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    background-color: #f0f2f5;
 }
 
 .admin-page-wrapper .content {
-    margin-top: 100px;
 }

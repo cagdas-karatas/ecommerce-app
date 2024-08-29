@@ -1,41 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/HomePage.css";
-import SearchIcon from '@mui/icons-material/Search';
-import PersonIcon from '@mui/icons-material/Person';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import MenuIcon from '@mui/icons-material/Menu';
 import ProductList from '../components/ProductList';
 import axios from 'axios';
 import { Product } from '../types';
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
-import AddProductPage from './AddProductPage';
-import { Drawer, List, ListItem, ListItemText } from '@mui/material';
 import AppBar from '../components/AppBar';
+import ProfilePage from './ProfilePage';
+import SellerFormContainer from '../components/SellerFormContainer';
+import StorePage from './StorePage';
+import AddProductPage from './AddProductPage';
 
 const HomePage: React.FC = () => {
-    const { user, setUser } = useUser();
+    const { setUser } = useUser();
+    const { user } = useUser();
     const navigate = useNavigate();
     const [products, setProducts] = useState<Product[]>([]);
     const [userType, setUserType] = useState<string>("none");
-    const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
     axios.defaults.withCredentials = true;
-
-    const toggleDrawer = () => {
-        setOpen(!open);
-    };
 
     useEffect(() => {
         axios.get("http://localhost:5212/api/Login/usercheck").then(
             response => {
-                setUser(response.data.user);
-                if(user.user.userType === "admin")
-                {
+                setUser(response.data);
+                setLoading(false);
+                if (user.user.userType === "admin") {
                     navigate("/admin");
                 }
-                else
-                {
+                else {
                     setUserType(user.user.userType);
                 }
             }
@@ -56,14 +49,21 @@ const HomePage: React.FC = () => {
                 console.log("ürün yok");
             }
         );
-    }, []);
+
+    }, [loading]);
 
     return (
         <div className="home-page-wrapper">
-            <AppBar header='Hepsişurada' headerHref='/' withSideMenu={false} withSearchBox={true} userType={user ? user.user.userType : "none"}/>
+            <AppBar header='Hepsişurada' headerHref='/' withSideMenu={userType === "seller" ? true : false} sideMenuItems={userType === "seller" ? [{name: "Ürün ekle", href:"add-product"}] : undefined} withSearchBox={true} userType={userType} />
 
             <div className="content">
-                <ProductList products={products} />
+                <Routes>
+                    <Route path='/' element={<ProductList products={products} />} />
+                    <Route path='profile' element={<ProfilePage />} />
+                    <Route path='seller-form' element={<SellerFormContainer />} />
+                    <Route path='store' element={<StorePage/>}/>
+                    <Route path='add-product' element={<AddProductPage />} />
+                </Routes>
             </div>
         </div>
     )

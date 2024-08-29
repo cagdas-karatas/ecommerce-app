@@ -13,7 +13,7 @@
     height: 100vh;
 }
 
-.form-box {
+.login-page-wrapper .form-box {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -23,25 +23,25 @@
     text-align: center;
 }
 
-.form-box h2 {
+.login-page-wrapper .form-box h2 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
 }
 
-.form-box .form-group {
+.login-page-wrapper .form-box .form-group {
     margin-bottom: 15px;
     text-align: left;
 }
 
-.form-box label {
+.login-page-wrapper .form-box label {
     display: block;
     font-size: 14px;
     color: #666;
     margin-bottom: 5px;
 }
 
-.form-box input[type="text"],
+.login-page-wrapper .form-box input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="tel"] {
@@ -53,7 +53,7 @@ input[type="tel"] {
     margin-bottom: 10px;
 }
 
-.form-box button[type="submit"] {
+.login-page-wrapper .form-box button[type="submit"] {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -66,21 +66,21 @@ input[type="tel"] {
     transition-duration: 200ms;
 }
 
-.form-box button[type="submit"]:hover {
+.login-page-wrapper .form-box button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-.form-box p {
+.login-page-wrapper .form-box p {
     margin-top: 20px;
     font-size: 14px;
     color: #666;
 }
 
-.form-box a {
+.login-page-wrapper .form-box a {
     color: #007bff;
     text-decoration: none;
 }
 
-.form-box a:hover {
+.login-page-wrapper .form-box a:hover {
     text-decoration: underline;
 }

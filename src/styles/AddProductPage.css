@@ -1,5 +1,6 @@
 * {
     font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
 .add-product-container {
@@ -40,6 +41,62 @@
     margin-right: 10px;
 }
 
+.add-product-container #upload-row {
+    justify-content: start;
+    gap: 20px;
+
+}
+
+.add-product-container .form-group .dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.add-product-container .form-group .dropdown .select {
+    cursor: pointer;
+    width: 100%;
+    background-color: indianred;
+    color: white;
+    border-radius: 4px;
+    padding: 7px 7px 7px 10px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-product-container .form-group .dropdown .dropdown_menu {
+    position: absolute;
+    top: 42px;
+    width: 100%;
+}
+
+.add-product-container .form-group .dropdown .dropdown_menu li {
+    cursor: pointer;
+    width: 100%;
+    background-color: indianred;
+    color: white;
+    padding: 10px;
+}
+
+.add-product-container .form-group .dropdown .dropdown_menu li:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.add-product-container .form-group .dropdown .dropdown_menu li:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.add-product-container .form-group .dropdown .dropdown_menu li:hover {
+    background-color: rgb(175, 62, 62);
+}
+
 .add-product-container .form-group:last-child {
     margin-right: 0;
 }
@@ -69,15 +126,14 @@ textarea {
 .add-product-container #uploadButton {
     cursor: pointer;
     background-color: indianred;
-    width: 90px;
-    height: 50px;
+    width: 225px;
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     border-radius: 5px;
     font-size: 15px;
-    margin: 20px;
 }
 
 .add-product-container #uploadButton:hover {

@@ -10,6 +10,7 @@ import ProfilePage from './ProfilePage';
 import SellerFormContainer from '../components/SellerFormContainer';
 import StorePage from './StorePage';
 import AddProductPage from './AddProductPage';
+import ProductDetailsPage from './ProductDetailsPage';
 
 const HomePage: React.FC = () => {
     const { setUser } = useUser();
@@ -54,15 +55,16 @@ const HomePage: React.FC = () => {
 
     return (
         <div className="home-page-wrapper">
-            <AppBar header='Hepsişurada' headerHref='/' withSideMenu={userType === "seller" ? true : false} sideMenuItems={userType === "seller" ? [{name: "Ürün ekle", href:"add-product"}] : undefined} withSearchBox={true} userType={userType} />
+            <AppBar header='Buyyare' headerHref='/' withSideMenu={userType === "seller" ? true : false} sideMenuItems={userType === "seller" ? [{name: "Ürün ekle", href:"add-product"}] : undefined} withSearchBox={true} userType={userType} />
 
             <div className="content">
                 <Routes>
-                    <Route path='/' element={<ProductList products={products} />} />
+                    <Route path='/' element={<ProductList products={products} fetchForSeller={false}/>} />
                     <Route path='profile' element={<ProfilePage />} />
                     <Route path='seller-form' element={<SellerFormContainer />} />
                     <Route path='store' element={<StorePage/>}/>
                     <Route path='add-product' element={<AddProductPage />} />
+                    <Route path='product-details' element={<ProductDetailsPage />} />
                 </Routes>
             </div>
         </div>

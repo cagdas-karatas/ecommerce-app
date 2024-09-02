@@ -3,7 +3,7 @@ export type Product = {
     shopId: number;
     productName: string;
     productDescription: string;
-    categoryId: string;
+    categoryId: number;
     price: number;
     imageName: string;
 };
@@ -16,4 +16,9 @@ export type ShopRequest = {
     shopAddress: string,
     approveStatus: string,
     userId: number
+}
+
+export type Category = {
+    categoryId: number,
+    categoryName: string
 }

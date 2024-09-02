@@ -16,7 +16,7 @@ const StorePage = () => {
     useEffect(() => {
         if (user && user.token) {
             setLoading(false);
-            axios.get("http://localhost:5212/api/Product")
+            axios.get("http://localhost:5212/api/Product?shop_id=" + user.user.shopId)
             .then(
                 response => {
                     setProducts(response.data);
@@ -44,7 +44,7 @@ const StorePage = () => {
     return (
         <div className='store-page-wrapper'>
             <h2>Ürünler:</h2>
-            <ProductList products={products}/>
+            <ProductList products={products} fetchForSeller={true}/>
         </div>
     );
 }

@@ -16,3 +16,8 @@
 .profile-page-wrapper p {
     margin-top: 30px;
 }
+
+.profile-page-wrapper p a {
+    color: blue;
+    cursor: pointer;
+}

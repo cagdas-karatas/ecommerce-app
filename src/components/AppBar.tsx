@@ -92,6 +92,13 @@ export default function AppBar({ header, headerHref, withSideMenu, sideMenuItems
             </div>
 
             <div style={{ display: userType === "seller" ? "flex" : "none" }} className="user-buttons" id="seller-buttons">
+                <div className="menu-button">
+                    <Link to={"store"}>
+                        <button className="circle-button">
+                            <StorefrontIcon id="store-icon" />
+                        </button>
+                    </Link>
+                </div>
 
                 <div className="menu-button">
                     <button className="circle-button">
@@ -109,12 +116,6 @@ export default function AppBar({ header, headerHref, withSideMenu, sideMenuItems
                             <a href="/" onClick={handleLogout}>Logout</a>
                         </div>
                     </div>
-                </div>
-
-                <div className="menu-button">
-                    <button className="circle-button" onClick={()=>navigate("store")}>
-                        <StorefrontIcon id="store-icon" />
-                    </button>
                 </div>
 
             </div>

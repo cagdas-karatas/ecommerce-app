@@ -1,0 +1,26 @@
+.product-details-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.product-details-page-wrapper .image img {
+    max-width: 100%;
+    height: 400px;
+}
+
+.product-details-page-wrapper .details-content {
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.product-details-page-wrapper .details-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-details-page-wrapper .details-content p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}

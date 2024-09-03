@@ -1,46 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/AddProductPage.css"
 import { useUser } from '../contexts/UserContext';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import axios from 'axios';
-import { error } from 'console';
-import { Category } from '../types';
 import { useNavigate } from 'react-router-dom';
+import CategoryDropdown from '../components/CategoryDropdown';
 
 const AddProductPage: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useUser();
   const [productName, setProductName] = useState("");
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<number>(0);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [imageName, setImageName] = useState("");
   const [imageSrc, setImageSrc] = useState<string | ArrayBuffer | null | undefined>();
   const [file, setFile] = useState<File>();
-
-  useEffect(() => {
-    axios.get("http://localhost:5212/api/Category")
-      .then(
-        response => {
-          setCategories(response.data);
-        }
-      )
-      .catch(
-        error => {
-          console.log(error);
-        }
-      );
-  }, []);
-
-  useEffect(() => {
-    //kategori setlenmesi tamamlanınca selectedCategory setlenir.
-    console.log("kategoiler setlend", categories);
-    if (categories.length > 0) {
-      setSelectedCategory(categories[0].categoryId);
-    }
-  }, [categories]);
+  const [selectedCategory, setSelectedCategory] = useState<number>(0);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   if (!(user && user.user && user.token)) {
     return <div>Loading...</div>;
@@ -91,15 +66,6 @@ const AddProductPage: React.FC = () => {
     }
   }
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  }
-
-  const handleSelect = (categoryId: number) => {
-    setSelectedCategory(categoryId);
-    toggleDropdown();
-  }
-
   const loadFile = (file: File | undefined) => {
     if (file) {
       const reader = new FileReader();
@@ -124,21 +90,7 @@ const AddProductPage: React.FC = () => {
       <div className="form-row">
         <div className="form-group">
           <label>Product Category</label>
-          <div className="dropdown">
-            <div className="select" onClick={toggleDropdown}>
-              {categories.find((category) => category.categoryId === selectedCategory)?.categoryName}
-              <ArrowDropDownIcon />
-            </div>
-            <ul style={{ display: dropdownOpen ? "initial" : "none" }} className="dropdown_menu">
-              {categories.length > 0 ? categories.map((categoryItem, index) => {
-                return (
-                  <li onClick={() => handleSelect(categoryItem.categoryId)}>
-                    {categoryItem.categoryName}
-                  </li>
-                )
-              }) : ""}
-            </ul>
-          </div>
+          <CategoryDropdown onSelected={(value)=>setSelectedCategory(value)}/>
         </div>
         <div className="form-group">
           <label>Price</label>

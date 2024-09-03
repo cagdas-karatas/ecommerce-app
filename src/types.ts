@@ -22,3 +22,15 @@ export type Category = {
     categoryId: number,
     categoryName: string
 }
+
+export type User = {
+    userId: number,
+    userName: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    phoneNumber: string,
+    email: string,
+    userType: string,
+    shopId?: number
+}

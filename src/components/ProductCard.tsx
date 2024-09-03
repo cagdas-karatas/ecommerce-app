@@ -20,7 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <div className="image">
                 <img src={"http://localhost:5212/images/" + product.imageName} alt={product.productName} />
             </div>
-            <div className="product-page-content">
+            <div className="product-card-content">
                 <h3>{product.productName}</h3>
                 <p className='price'>Price: ₺{product.price}</p>
             </div>

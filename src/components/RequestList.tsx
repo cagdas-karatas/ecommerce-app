@@ -130,7 +130,7 @@ const RequestList: React.FC = () => {
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
 
 export default RequestList;

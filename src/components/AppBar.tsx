@@ -101,9 +101,11 @@ export default function AppBar({ header, headerHref, withSideMenu, sideMenuItems
                 </div>
 
                 <div className="menu-button">
-                    <button className="circle-button">
-                        <ShoppingCartIcon id="shoppingCartIcon" />
-                    </button>
+                    <Link to={"shopping-cart"}>
+                        <button className="circle-button">
+                            <ShoppingCartIcon id="shoppingCartIcon" />
+                        </button>
+                    </Link>
                 </div>
 
                 <div className="menu-button">

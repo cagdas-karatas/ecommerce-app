@@ -89,6 +89,10 @@
     color: #e60023;
 }
 
+.modal {
+    position: relative;
+}
+
 .modal .modal-header {
     width: 100%;
     height: 100%;
@@ -115,6 +119,31 @@
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.modal .modal-content #preview-image {
+    height: 100px;
+    width: auto;
+}
+
+.modal .modal-content #uploadButton {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    background-color: indianred;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.modal .modal-content #uploadButton:hover {
+    background-color: rgb(163, 73, 73);
 }
 
 .modal .modal-footer {

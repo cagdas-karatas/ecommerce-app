@@ -37,9 +37,7 @@ const AddProductPage: React.FC = () => {
       productData.append('shopId', user.user.shopId);
       productData.append('productName', productName);
       productData.append('productDescription', description);
-      if (selectedCategory) {
-        productData.append('categoryId', selectedCategory.toString());
-      }
+      productData.append('categoryId', selectedCategory.toString());
       productData.append('price', price.toString());
       productData.append('imageName', imageName);
       if (file) {

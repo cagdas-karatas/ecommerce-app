@@ -1,0 +1,47 @@
+.shopping-cart-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+}
+
+.shopping-cart-page-wrapper .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+
+.shopping-cart-page-wrapper .row .delete-button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+}
+
+.shopping-cart-page-wrapper .product-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.shopping-cart-page-wrapper .product-list .product-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.shopping-cart-page-wrapper .product-list .product-row img{
+    height: 50px;
+    width: auto;
+}

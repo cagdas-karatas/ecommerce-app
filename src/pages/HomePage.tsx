@@ -11,6 +11,7 @@ import SellerFormContainer from '../components/SellerFormContainer';
 import StorePage from './StorePage';
 import AddProductPage from './AddProductPage';
 import ProductDetailsPage from './ProductDetailsPage';
+import ShoppingCartPage from './ShoppingCartPage';
 
 const HomePage: React.FC = () => {
     const { setUser } = useUser();
@@ -65,6 +66,7 @@ const HomePage: React.FC = () => {
                     <Route path='store' element={<StorePage/>}/>
                     <Route path='add-product' element={<AddProductPage />} />
                     <Route path='product-details' element={<ProductDetailsPage />} />
+                    <Route path='shopping-cart' element={<ShoppingCartPage />} />
                 </Routes>
             </div>
         </div>

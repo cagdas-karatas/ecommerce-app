@@ -24,6 +24,7 @@ export type Category = {
 }
 
 export type User = {
+    shopRequestId: number,
     userId: number,
     userName: string,
     password: string,

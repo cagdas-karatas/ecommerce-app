@@ -56,7 +56,7 @@ const ShoppingCartPage = () => {
                 <div className="price">{product.price}</div>
               </div>
             ))
-            : <div className="product-row">Sepetiniz boş</div>
+            : <div className="product-row">Sepetiniz boşş</div>
         }
       </div>
     </div>

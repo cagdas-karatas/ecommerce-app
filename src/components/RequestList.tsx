@@ -94,7 +94,7 @@ const RequestList: React.FC = () => {
 
     const handleSearch = () => {
         console.log("basıldı");
-        authAxios.get(`http://localhost:5212/api/Shop/requests?${requestId !== 0 ? `ShopRquestId=${requestId}` : ""}`)
+        authAxios.get(`http://localhost:5212/api/Shop/requests?${requestId !== 0 ? `ShopRequestId=${requestId}` : ""}`)
             .then(
                 response => {
                     console.log("sonuç geldi");

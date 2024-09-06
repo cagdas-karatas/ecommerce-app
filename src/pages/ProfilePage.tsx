@@ -63,7 +63,7 @@ const ProfilePage = () => {
       <h1>Hoşgeldiniz {user.user.firstName} {user.user.lastName}</h1>
       <p>Kullanıcı Adı: {user.user.userName}</p>
       <p>Telefon: {user.user.phoneNumber}</p>
-      <p>E-mail: {user.user.phoneNumber}</p>
+      <p>E-mail: {user.user.email}</p>
       <p>Yetki: {user.user.userType}</p>
       {
         !hasRequest

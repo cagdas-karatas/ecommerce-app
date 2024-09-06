@@ -5,7 +5,7 @@ import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
 import { Product } from '../types';
 
-const ShoppingCartPage = () => {
+const ShoppingCartPage: React.FC = () => {
   const { user } = useUser();
   const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState<Product[]>([]);
@@ -30,8 +30,34 @@ const ShoppingCartPage = () => {
       );
   }, [loading]);
 
-  const handleClearCart = () => {
+  const handleDelete = (productId: number) => {
+    axios.delete(`http://localhost:5212/api/ShoppingCart/clear?p_id=${productId}&u_id=${user.user.userId}`)
+    .then(
+      response => {
+        alert("Ürün sepetinizden silindi");
+        setProductData(productData.filter(product => product.productId !== productId));
+      }
+    )
+    .catch(
+      err => {
+        console.log(err);
+      }
+    );
+  }
 
+  const handleClearCart = () => {
+    axios.delete("http://localhost:5212/api/ShoppingCart/clear?u_id=" + user.user.userId)
+    .then(
+      response => {
+        alert("Sepet başarıyla temizlendi");
+        setProductData([]);
+      }
+    )
+    .catch(
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   if (loading) {
@@ -53,14 +79,17 @@ const ShoppingCartPage = () => {
               <div className="product-row">
                 <img src={`http://localhost:5212/images/${product.imageName}`} />
                 <div className="product-name">{product.productName}</div>
-                <div className="price">{product.price}</div>
+                <div className="price">{product.price} ₺</div>
+                <div className="delete-button" onClick={()=>handleDelete(product.productId)}>
+                  <DeleteIcon />
+                </div>
               </div>
             ))
-            : <div className="product-row">Sepetiniz boşş</div>
+            : <div className="product-row">Sepetiniz boş</div>
         }
       </div>
     </div>
-  )
+  );
 }
 
 export default ShoppingCartPage;

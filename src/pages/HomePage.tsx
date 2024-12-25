@@ -56,7 +56,7 @@ const HomePage: React.FC = () => {
 
     return (
         <div className="home-page-wrapper">
-            <AppBar header='Buyyare' headerHref='/' withSideMenu={userType === "seller" ? true : false} sideMenuItems={userType === "seller" ? [{name: "Ürün ekle", href:"add-product"}] : undefined} withSearchBox={true} userType={userType} />
+            <AppBar header='Hepsişurada' headerHref='/' withSideMenu={userType === "seller" ? true : false} sideMenuItems={userType === "seller" ? [{name: "Ürün ekle", href:"add-product"}] : undefined} withSearchBox={true} userType={userType} />
 
             <div className="content">
                 <Routes>
